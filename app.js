@@ -20,9 +20,7 @@ const cors = require('koa2-cors');
 // error handler
 onerror(app)
 
-app.use(cors({
-  credentials: true,
-}))
+//app.use(cors())
 // middlewares
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
