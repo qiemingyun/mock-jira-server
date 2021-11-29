@@ -6,7 +6,7 @@ let REDIS_CONF
 if (env === 'dev') {
   MYSQL_CONF = {
     host: '3.134.146.251',
-    user: 'qmy',
+    user: 'root',
     password: 'Tr20201126',
     port: '3306',
     database: 'jira',
@@ -22,7 +22,7 @@ if (env === 'dev') {
 if (env === 'prd') {
   MYSQL_CONF = {
     host: '3.134.146.251',
-    user: 'qmy',
+    user: 'root',
     password: 'Tr20201126',
     port: '3306',
     database: 'jira',
