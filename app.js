@@ -20,7 +20,12 @@ const cors = require('koa2-cors');
 // error handler
 onerror(app)
 
-app.use(cors())
+app.use(cors({
+  origin: function (ctx) {
+    return 'http://localhost:3000';
+  },
+  credentials:true
+}))
 // middlewares
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
@@ -47,7 +52,6 @@ app.use(session({
 
 // logger
 app.use(async (ctx, next) => {
-  ctx.set("Access-Control-Allow-Origin", "*")
   const start = new Date()
   await next()
   const ms = new Date() - start
