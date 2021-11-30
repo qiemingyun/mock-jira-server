@@ -47,6 +47,7 @@ app.use(session({
 
 // logger
 app.use(async (ctx, next) => {
+  ctx.set("Access-Control-Allow-Origin", "*")
   const start = new Date()
   await next()
   const ms = new Date() - start
