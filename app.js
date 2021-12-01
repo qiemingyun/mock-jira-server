@@ -22,7 +22,7 @@ onerror(app)
 
 app.use(cors({
   credentials: true,
-  origin: origin: ['https://qiemingyun.github.io', 'http://localhost:3000'],
+  origin: ['https://qiemingyun.github.io', 'http://localhost:3000'],
   methods: ‘GET,HEAD,PUT,PATCH,DELETE’,
 }))
 // middlewares
