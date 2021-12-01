@@ -23,7 +23,6 @@ onerror(app)
 app.use(cors({
   credentials: true,
   origin: ['https://qiemingyun.github.io', 'http://localhost:3000'],
-  methods: ‘GET,HEAD,PUT,PATCH,DELETE’,
 }))
 // middlewares
 app.use(bodyparser({
