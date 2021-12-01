@@ -9,7 +9,7 @@ var debug = require('debug')('demo:server');
 var http = require('http');
 const https = require('https');
 const fs = require('fs');
-const enforceHttps = require('koa-sslify');
+const { default: enforceHttps } = require('koa-sslify');
 
 /**
  * Get port from environment and store in Express.
@@ -24,8 +24,8 @@ var port = normalizePort(process.env.PORT || '3001');
  * Create HTTP server.
  */
 const options = {
-  key: fs.readFileSync('../app/ssl/www.qiemingyun.com.key'),
-  cert: fs.readFileSync('../app/ssl/www.qiemingyun.com.cer')
+  key: fs.readFileSync('./ssl/www.qiemingyun.com.key'),
+  cert: fs.readFileSync('./ssl/www.qiemingyun.com.cer')
 };
 
 var server = https.createServer(options, app.callback());
