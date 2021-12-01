@@ -22,9 +22,7 @@ onerror(app)
 
 app.use(cors({
   credentials: true,
-  origin: function(ctx){
-    return 'http://localhost:3000'
-  }
+  origin: 'http://localhost:3000'
 }))
 // middlewares
 app.use(bodyparser({
@@ -43,7 +41,9 @@ app.use(session({
   cookie: {
     path: '/',
     httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000 
+    maxAge: 24 * 60 * 60 * 1000,
+    // secure: true,
+    // sameSite: 'none'
   },
   store: redisStore({
     all: `${REDIS_CONF.host}:${REDIS_CONF.port}`
@@ -52,7 +52,7 @@ app.use(session({
 
 // logger
 app.use(async (ctx, next) => {
-  ctx.set("Access-Control-Allow-Origin", "http://3.134.146.251:3001")
+  ctx.set("Access-Control-Allow-Origin", "http://localhost:3000")
   ctx.set("Access-Control-Allow-Credentials", true)
   const start = new Date()
   await next()

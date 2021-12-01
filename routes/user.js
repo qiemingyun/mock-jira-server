@@ -33,8 +33,10 @@ router.post('/register', async function (ctx, next) {
   ctx.body = new ErrorModel('username already be used')
 })
 
-router.post('/login', async function (ctx, next) {
-  const { username, password } = ctx.request.body
+router.get('/login', async function (ctx, next) {
+  const username = ctx.query.username || ''
+  const password = ctx.query.password || ''
+  // const { username, password } = ctx.request.body
   const data = await login(username,password)
   
   if (data.name) {
