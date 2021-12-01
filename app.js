@@ -22,7 +22,7 @@ onerror(app)
 
 app.use(cors({
   credentials: true,
-  origin: ['https://qiemingyun.github.io', 'http://localhost:3000'],
+  origin: 'https://qiemingyun.github.io',
 }))
 // middlewares
 app.use(bodyparser({
@@ -52,7 +52,7 @@ app.use(session({
 
 // logger
 app.use(async (ctx, next) => {
-  ctx.set("Access-Control-Allow-Origin", "http://localhost:3000")
+  ctx.set("Access-Control-Allow-Origin", "https://qiemingyun.github.io")
   ctx.set("Access-Control-Allow-Credentials", true)
   const start = new Date()
   await next()
