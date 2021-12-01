@@ -42,8 +42,8 @@ app.use(session({
     path: '/',
     httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000,
-    // secure: true,
-    // sameSite: 'none'
+    secure: true,
+    sameSite: 'none'
   },
   store: redisStore({
     all: `${REDIS_CONF.host}:${REDIS_CONF.port}`

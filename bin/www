@@ -15,7 +15,7 @@ const enforceHttps = require('koa-sslify');
  * Get port from environment and store in Express.
  */
 
-// app.use(enforceHttps());
+app.use(enforceHttps());
 
 var port = normalizePort(process.env.PORT || '3001');
 // app.set('port', port);
@@ -23,14 +23,14 @@ var port = normalizePort(process.env.PORT || '3001');
 /**
  * Create HTTP server.
  */
-// const options = {
-//   key: fs.readFileSync('../app/ssl/ssl.key'),
-//   cert: fs.readFileSync('../app/ssl/ssl.pem')
-// };
+const options = {
+  key: fs.readFileSync('../app/ssl/www.qiemingyun.com.key'),
+  cert: fs.readFileSync('../app/ssl/www.qiemingyun.com.cer')
+};
 
-// var server = https.createServer(options, app.callback());
+var server = https.createServer(options, app.callback());
 
-var server = http.createServer(app.callback());
+// var server = http.createServer(app.callback());
 
 /**
  * Listen on provided port, on all network interfaces.
