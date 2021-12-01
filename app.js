@@ -52,7 +52,7 @@ app.use(session({
 
 // logger
 app.use(async (ctx, next) => {
-  // ctx.set("Access-Control-Allow-Origin", "http://localhost:3000")
+  ctx.set("Access-Control-Allow-Origin", "http://localhost:3000")
   ctx.set("Access-Control-Allow-Credentials", true)
   const start = new Date()
   await next()
